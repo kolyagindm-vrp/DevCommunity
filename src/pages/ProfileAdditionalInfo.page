@@ -1,0 +1,19 @@
+<apex:page showHeader="false" sidebar="false" controller="ProfileAdditionalInfoController">
+	<h1></h1>
+	<h2>Last login date</h2>
+	<apex:form>
+		<apex:pageBlock >
+			<apex:pageBlockSection title="Profile Info">
+				<apex:outputField id="detaillastlogindate" value="{! user.LastLoginDate }" label="Last login date"/>
+				<apex:outputText id="detailtoday" value="{! TODAY() }" label="Today" />
+				<apex:outputText id="detaildaysago" value="{! daysAgo }" label="Last logged, days ago" />
+				<apex:outputText id="detailmonthsago" value="{! monthsAgo }" label="Last logged, months ago" />
+				<apex:outputField id="detailisactive" value="{! user.isactive }" label="Is active"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons title="Buttons">
+				<apex:commandButton action="{! activateUser }" value="Activate user" />
+				<apex:commandButton action="{! deactivateUser }" value="Deactivate user" />
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page> 
