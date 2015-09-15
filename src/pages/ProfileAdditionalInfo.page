@@ -1,5 +1,5 @@
 <apex:page showHeader="false" sidebar="false" controller="ProfileAdditionalInfoController">
-	<apex:form>
+	<apex:form >
 		<apex:pageBlock >
 			<apex:pageBlockSection title="Profile Info">
 				<apex:outputField id="detaillastlogindate" value="{! user.LastLoginDate }" label="Last login date"/>
@@ -14,4 +14,4 @@
 			</apex:pageBlockButtons>
 		</apex:pageBlock>
 	</apex:form>
-</apex:page> 
+</apex:page>
