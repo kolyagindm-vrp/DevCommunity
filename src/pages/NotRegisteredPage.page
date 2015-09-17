@@ -1,0 +1,12 @@
+<apex:page showHeader="false" sidebar="false">
+	<apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+	<!-- Begin Default Content REMOVE THIS -->
+	<div class="container">
+		<div class="jumbotron">
+			<h1>We are very sorry!</h1>
+			<p>You are not registred in the system. Please contact your administrator.</p>
+		</div>
+	</div>
+	<!-- End Default Content REMOVE THIS -->
+</apex:page>

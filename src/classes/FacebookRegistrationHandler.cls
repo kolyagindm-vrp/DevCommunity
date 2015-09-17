@@ -10,6 +10,7 @@ public class FacebookRegistrationHandler implements Auth.RegistrationHandler {
 	}
 
     public User createUser(Id portalId, Auth.UserData data) {
+    		System.debug('1');
 		// Match the Auth.UserData to an existing user?
 		if (!canCreateUser(data)) {
 			System.debug('Not enough parameters');
@@ -24,7 +25,14 @@ public class FacebookRegistrationHandler implements Auth.RegistrationHandler {
 				return users[0];
 			}
 			//Trying to find user with primary email
-			String contactId = [SELECT Id FROM Contact WHERE email = :data.email].Id;
+			List<Contact> contacts = [SELECT Id FROM Contact WHERE email = :data.email];
+			String contactId;
+			if (contacts.size() == 0) {
+				System.debug('No contact founded');
+				return null;
+			} else {
+				contactId = contacts[0].Id;
+			}
 			users = [SELECT Id FROM User WHERE ContactId = :contactId];
 			if (users.size() > 0) {
 				System.debug('email: ' + users[0]);
@@ -67,6 +75,7 @@ public class FacebookRegistrationHandler implements Auth.RegistrationHandler {
 
 				return user;
 			}
+			return null;
 		}		
 	}
 
