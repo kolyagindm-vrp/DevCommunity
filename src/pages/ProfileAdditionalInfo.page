@@ -9,8 +9,8 @@
 				<apex:outputField id="detailisactive" value="{! user.isactive }" label="Is active"/>
 			</apex:pageBlockSection>
 			<apex:pageBlockButtons title="Buttons" rendered="{! isAdmin }">
-				<apex:commandButton action="{! activateUser }" value="Activate user" />
-				<apex:commandButton action="{! deactivateUser }" value="Deactivate user" />
+				<apex:commandButton action="{! activateUser }" value="Activate user" disabled="{! isSelf }"/>
+				<apex:commandButton action="{! deactivateUser }" value="Deactivate user" disabled="{! isSelf }"/>
 			</apex:pageBlockButtons>
 		</apex:pageBlock>
 	</apex:form>

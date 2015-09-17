@@ -3,7 +3,9 @@ public with sharing class ProfileAdditionalInfoController {
 	public User user { get; private set; }			//User sObject
 	public Integer daysAgo { get; private set; }		//Last login days ago
 	public Integer monthsAgo { get; private set; }	//Last login months ago
-	public Boolean isAdmin { get; private set; }		//@TODO
+	public Boolean isAdmin { get; private set; }		//Wether current user is admin or not
+	public Boolean isSelf { get; private set; }		//Wether current page is self profile page
+
 
 	public ProfileAdditionalInfoController() {
 		user = [SELECT Id, Name, Email, LastLoginDate, IsActive FROM User WHERE Id = :ApexPages.currentPage().getParameters().get('sfdc.userid')];
@@ -13,6 +15,7 @@ public with sharing class ProfileAdditionalInfoController {
 		//See if current user is System Administrator
 		Profile curProfile = [SELECT Name FROM Profile WHERE Id = :UserInfo.getProfileId()];
 		isAdmin = (curProfile.Name == 'System Administrator');
+		isSelf = (user.Id == UserInfo.getUserId());
 	}
 
 	/*
