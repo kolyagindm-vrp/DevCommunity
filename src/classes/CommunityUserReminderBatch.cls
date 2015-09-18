@@ -1,13 +1,11 @@
 public class CommunityUserReminderBatch implements Database.Batchable<sObject> {
 	
-	String query;
-	
-	public CommunityUserReminderBatch(String q) {
-		query = q;
+	public CommunityUserReminderBatch() {
+		
 	}
 	
 	public Database.QueryLocator start(Database.BatchableContext BC) {
-		return Database.getQueryLocator(query);
+		return Database.getQueryLocator([SELECT Email, Alias, LastLoginDate FROM User WHERE Profile.Name = 'Customer Community User']);
 	}
 
    	public void execute(Database.BatchableContext BC, List<User> scope) {
