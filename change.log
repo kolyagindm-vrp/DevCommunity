@@ -10,3 +10,9 @@
 10.09.2015
 	- Additional user info visualforce page added.
 	- Controller for visualforce added.
+17.09.2015
+	- Facebook authorization added
+	- Custom error auth visualforce page added
+18.09.2015
+	- Self deactivation issue fixed.
+	- Unit tests for batch added.
